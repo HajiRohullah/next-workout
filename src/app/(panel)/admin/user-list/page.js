@@ -1,8 +1,8 @@
 'use client';
 
 import UserCreation from "@/components/admin/user/UserCreation";
-import { ActionIcon, Anchor, Avatar, Breadcrumbs, Button, Card, Group, Pagination, ScrollArea, Select, Table, TextInput } from "@mantine/core";
-import { IconEdit, IconPlus, IconSearch, IconTrash } from "@tabler/icons-react";
+import { ActionIcon, Anchor, Avatar, Breadcrumbs, Button, Card, Group, Pagination, ScrollArea, Select, Table, TextInput, Title } from "@mantine/core";
+import { IconEdit, IconPlus, IconSearch, IconTrash, IconUser } from "@tabler/icons-react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -97,6 +97,15 @@ export default function Page() {
       timer: 2000
     })
   }
+
+  const items = [
+    { title: 'Home', href: '#' },
+    { title: 'User List', href: '#' },
+  ].map((item, index) => (
+    <Anchor href={item.href} className="text-greyDark" key={index}>
+      {item.title}
+    </Anchor>
+  ));
   const ths = (
     <tr>
       <th>ID</th>
@@ -127,6 +136,24 @@ export default function Page() {
   ));
   return <>
     <UserCreation setShowDialog={setShowDialog} editData={editData} showDialog={showDialog} updateRecord={updateRecord} insertRecord={insertRecord}></UserCreation>
+    <Card className="mb-4" shadow="sm" padding="lg" radius="md" withBorder >
+      <div className="flex items-center text-greyDark ">
+        <Avatar radius={50} size={"xl"} className="me-3">
+          <IconUser size={50} />
+        </Avatar>
+        <div className="flex flex-col justify-between">
+          <Title
+            mb={5}
+            style={{ fontSize: "28px" }}
+          >
+            User List
+          </Title>
+          <Breadcrumbs separator="→" mt="xs" className="text-greyDark">{items}</Breadcrumbs>
+        </div>
+      </div>
+
+    </Card>
+
     <Card shadow="sm" padding="lg" radius="md" withBorder>
       <div className="flex  align-middle justify-between pb-3">
         <p className="text-[22px] font-[500]">User List ({totalRecords})</p>

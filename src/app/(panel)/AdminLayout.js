@@ -23,7 +23,7 @@ function AdminLayout({ children }) {
               Design and Developed by
               <Anchor href='https://smartfriqi.com' target='_blank'>
                 {" "}
-                Smart Friqi
+                Rohullah Hussaini
               </Anchor>
             </Text>
             <Text size={"sm"}>Copyright &copy; 2023</Text>
