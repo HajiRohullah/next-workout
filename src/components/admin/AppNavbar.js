@@ -6,8 +6,7 @@ import getMenuItems from '@/configs/menu';
 export default function AppNavbar() {
   let menus = getMenuItems()
   const data = [
-    { icon: <IconUsersGroup size="1rem" />, color: 'blue', label: 'User List', link: '/admin/user-list' },
-
+    { icon: <IconUsersGroup size="1rem" />, color: 'blue', label: 'User List', link: '/' },
   ];
   const links = (menus.map((row, index) => {
     return <MainLinks  {...row} key={index} />

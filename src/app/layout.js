@@ -1,3 +1,4 @@
+import AdminLayout from './(panel)/AdminLayout';
 import './globals.css'
 import RootStyleRegistry from './mantineProvider'
 import { Nunito } from "next/font/google";
@@ -15,7 +16,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={nunito.className} suppressHydrationWarning={true}>
         <RootStyleRegistry>
-          {children}
+          <AdminLayout>
+            {children}
+          </AdminLayout>
         </RootStyleRegistry>
       </body>
     </html>
