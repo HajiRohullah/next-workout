@@ -10,9 +10,8 @@ function AppHeader({ opened, setOpened }) {
   const { width, height } = useViewportSize();
   return (
     <Header
-      className="custom-header flex items-center w-full"
+      className="custom-header flex items-center w-full px-3 py-2"
       height={70}
-      p="md"
     >
       <div className="flex items-center w-full">
         {width < theme.breakpoints.sm && (
@@ -24,13 +23,13 @@ function AppHeader({ opened, setOpened }) {
             mr="xl"
           />
         )}
-        <Link href={"/"}>
+        <Link href={"/"} className='flex align-middle'>
           <Image
-            width={100}
-            height={40}
+            height={30}
             src="/images/logo.png"
             alt="Million Experts"
           />
+          <p className='mb-0 font-[600] text-[22px] ps-2 text-greyDark'>Logo</p>
         </Link>
         <Group className="ms-auto">
         </Group>

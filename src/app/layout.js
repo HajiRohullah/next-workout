@@ -1,8 +1,5 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
 import RootStyleRegistry from './mantineProvider'
-
-
 import { Nunito } from "next/font/google";
 const nunito = Nunito({
   weight: ["400", "700", "300", "900"],
@@ -16,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={nunito.className}>
+      <body className={nunito.className} suppressHydrationWarning={true}>
         <RootStyleRegistry>
           {children}
         </RootStyleRegistry>

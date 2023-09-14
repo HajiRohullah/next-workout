@@ -17,6 +17,7 @@ export default function Page() {
   const [search, setSearch] = useState("");
   const [swalProps, setSwalProps] = useState({});
   const [editData, setEditData] = useState({});
+  const [delayTimer, setDelayTimer] = useState(null)
 
 
   useEffect(() => {
@@ -25,7 +26,6 @@ export default function Page() {
 
   const fetchRecords = async (perPage = 0) => {
     const { data } = await axios.get('http://localhost:8000/api/users', { params: { page, itemsPerPage: perPage == 0 ? itemsPerPage : perPage, search } });
-    console.log('data', data)
     setUsers(data.data);
     setTotalRecords(data.total)
     setTotalPage(data.totalPage)
@@ -130,7 +130,9 @@ export default function Page() {
     <Card shadow="sm" padding="lg" radius="md" withBorder>
       <div className="flex  align-middle justify-between pb-3">
         <p className="text-[22px] font-[500]">User List ({totalRecords})</p>
-        <TextInput placeholder="type something..." icon={<IconSearch size="1.4rem" />}
+        <TextInput
+          value={search} onChange={(event) => setSearch(event.currentTarget.value)}
+          placeholder="type something..." icon={<IconSearch size="1.4rem" />}
           className="w-[250px]"
           size="md"
         />
