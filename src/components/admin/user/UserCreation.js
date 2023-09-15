@@ -37,7 +37,7 @@ function UserCreation({ showDialog, setShowDialog, insertRecord, updateRecord, e
       username: '',
       email: '',
       password: '',
-      confirm_password: '',
+      password_confirmation: '',
       profile: ''
     },
     validate: {
@@ -82,7 +82,7 @@ function UserCreation({ showDialog, setShowDialog, insertRecord, updateRecord, e
 
       if (Object.keys(editData).length == 0) {
         formData.append('password', form.values.password);
-        formData.append('confirm_password', form.values.confirm_password);
+        formData.append('password_confirmation', form.values.password_confirmation);
       }
       setSubmiting(true)
       const url = Object.keys(editData).length > 0 ? `users/${editData.id}?_method=PUT` : 'users?_method=POST'
@@ -112,7 +112,7 @@ function UserCreation({ showDialog, setShowDialog, insertRecord, updateRecord, e
       username: '',
       email: '',
       password: '',
-      confirm_password: '',
+      password_confirmation: '',
       profile: ''
     }
     form.setValues(val)
@@ -211,10 +211,11 @@ function UserCreation({ showDialog, setShowDialog, insertRecord, updateRecord, e
                   </div>
                   <div className="w-full">
                     <TextInput
+                      type='password'
                       withAsterisk
                       label="Confirm password"
                       placeholder="Confirm password"
-                      {...form.getInputProps('confirm_password')}
+                      {...form.getInputProps('password_confirmation')}
                     />
                   </div>
                 </div>
